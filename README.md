@@ -1,4 +1,44 @@
-# unzip [![Build Status](https://travis-ci.org/EvanOxfeld/node-unzip.png)](https://travis-ci.org/EvanOxfeld/node-unzip)
+# zip-stream-parser
+
+This project is forked from [EvanOxfeld/node-unzip](https://github.com/EvanOxfeld/node-unzip), for parsing the correct
+file headers from [Central Directory](https://users.cs.jmu.edu/buchhofp/forensics/formats/pkzip.html#centraldirectory)
+which is placed at the end of a zip file, and is ignored in `unzip`.
+
+Only use this if you are interested in reading the entry information only from a zip file stream, except the file content
+or extracting them.
+
+## Usage
+
+```javascript
+const fs = require('fs');
+const { Parse } = require('zip-stream-parser');
+
+fs.createReadStream().pipe(Parse())
+.on('entry', entry => {
+  entry.autodran();
+})
+.on('info', info => {
+  console.log(info);
+  // => {
+  //   path: <string>,
+  //   compressedSize: <number>,
+  //   uncompressedSize: <number>,
+  //   lastModified: <date>,
+  // }
+})
+.on('entries', entries => {
+  console.log(entries);
+  // output list of entries
+})
+```
+
+## TODOs
+
+* [ ] Support more entry information
+* [ ] Support Zip64 file size
+
+----
+# unzip
 
 Streaming cross-platform unzip tool written in node.js.
 
@@ -78,4 +118,3 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
