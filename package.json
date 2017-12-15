@@ -1,7 +1,7 @@
 {
   "name": "zip-stream-parser",
   "version": "0.2.0",
-  "description": "Forked Unzip to support entry information parsing",
+  "description": "Forked Unzip to support more entry information parsing",
   "author": "Alvin Ma <get.so.smart@gmail.com>",
   "repository": {
     "type": "git",

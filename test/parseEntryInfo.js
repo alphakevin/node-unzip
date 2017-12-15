@@ -30,7 +30,7 @@ test("parse entry info", function (t) {
     t.equal(info.lastModified.valueOf(), new Date('2012-08-08T03:18:10.000Z').valueOf());
   });
     
-  unzipParser.on('info', function(info) {
+  unzipParser.on('cd.entry', function(info) {
     if (info.type === 'File') {
       unzipParser.emit('file', info);
     } else if (info.type === 'Directory') {

@@ -17,7 +17,8 @@ fs.createReadStream().pipe(Parse())
 .on('entry', entry => {
   entry.autodran();
 })
-.on('info', info => {
+.on('cd.entry', info => {
+  // entry information from central directory record
   console.log(info);
   // => {
   //   path: <string>,
@@ -26,7 +27,8 @@ fs.createReadStream().pipe(Parse())
   //   lastModified: <date>,
   // }
 })
-.on('entries', entries => {
+.on('cd.entries', entries => {
+  // emit all entries after stream is finished
   console.log(entries);
   // output list of entries
 })
