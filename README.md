@@ -7,6 +7,12 @@ which is placed at the end of a zip file, and is ignored in `unzip`.
 Only use this if you are interested in reading the entry information only from a zip file stream, except the file content
 or extracting them.
 
+## Install
+
+```bash
+npm install zip-stream-parser
+```
+
 ## Usage
 
 ```javascript
