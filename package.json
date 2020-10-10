@@ -1,6 +1,6 @@
 {
   "name": "zip-stream-parser",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Forked Unzip to support more entry information parsing",
   "author": "Alvin Ma <get.so.smart@gmail.com>",
   "repository": {
@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "fstream": ">= 0.1.30 < 1",
+    "fstream": ">= 1.0.0",
     "pullstream": ">= 0.4.1 < 1",
     "binary": ">= 0.3.0 < 1",
     "readable-stream": "~1.0.31",
